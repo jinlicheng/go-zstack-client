@@ -1,0 +1,14 @@
+{
+	"ImportPath": "github.com/jinlicheng/go-zstack-client",
+	"GoVersion": "go1.7",
+	"GodepVersion": "v76",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/streadway/amqp",
+			"Rev": "63795daa9a446c920826655f26ba31c81c860fd6"
+		}
+	]
+}

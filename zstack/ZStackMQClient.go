@@ -12,17 +12,15 @@ const (
 )
 
 type ZStackMQClient struct {
-	baseURL  string // The base URL of the API
-	port     uint16
-	user     string
-	passwd   string
-	timeout  int64 // Max waiting timeout in seconds for async jobs to finish; defaults to 300 seconds
+	baseURL string // The base URL of the API
+	port    uint16
+	user    string
+	passwd  string
+	timeout int64 // Max waiting timeout in seconds for async jobs to finish; defaults to 300 seconds
 }
 
 type Connection struct {
-
 }
 
 type CloudBus struct {
-
 }

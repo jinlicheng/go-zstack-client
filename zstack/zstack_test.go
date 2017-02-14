@@ -1,8 +1,8 @@
 package zstack
 
 import (
+	"log"
 	"testing"
-    "log"
 )
 
 func initZSClient() ZStackClient {
@@ -44,7 +44,7 @@ func TestZstack2(t *testing.T) {
 	createLoadBalancerParams.SetDescription("test from go")
 	createLoadBalancerParams.SetVipUuid("73e2bf8bc972463a8131e2a0e603a68c")
 
-    wait := make(chan int)
+	wait := make(chan int)
 
 	loadBalancerService.CreateLoadBalancer(createLoadBalancerParams, func(resp CreateLoadBalancerResponse) {
 		log.Println(resp)
@@ -52,5 +52,5 @@ func TestZstack2(t *testing.T) {
 		log.Println("error")
 		log.Println(err)
 	})
-    <-wait
+	<-wait
 }

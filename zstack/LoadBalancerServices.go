@@ -135,12 +135,12 @@ func (p *DeleteLoadBalancerParams) toApiMessage() (string, error) {
 
 type DeleteLoadBalancerResponse struct {
 	Reply struct {
-		id           string       `json:"id"`
-		ApiId        string       `json:"apiId"`
-		CreatedTime  uint64       `json:"createdTime"`
-		Success      bool         `json:"success"`
-		Error        ZStackError  `json:"error"`
-		Type         ZStackType   `json:"type"`
+		id          string      `json:"id"`
+		ApiId       string      `json:"apiId"`
+		CreatedTime uint64      `json:"createdTime"`
+		Success     bool        `json:"success"`
+		Error       ZStackError `json:"error"`
+		Type        ZStackType  `json:"type"`
 	} `json:"org.zstack.network.service.lb.APIDeleteLoadBalancerEvent"`
 }
 
@@ -167,14 +167,13 @@ func (p *QueryLoadBalancerListenerParams) toApiMessage() (string, error) {
 
 type QueryLoadBalancerListenerResponse struct {
 	Reply struct {
-		Id            string         `json:"id"`
-		Success       bool           `json:"success"`
-		ServiceId     string         `json:"serviceId"`
-		CreatedTime   uint           `json:"createdTime"`
-		Total         uint16         `json:"total"`
-		Listeners []LoadBalancerListener `json:"inventories"`
+		Id          string                 `json:"id"`
+		Success     bool                   `json:"success"`
+		ServiceId   string                 `json:"serviceId"`
+		CreatedTime uint                   `json:"createdTime"`
+		Total       uint16                 `json:"total"`
+		Listeners   []LoadBalancerListener `json:"inventories"`
 	} `json:"org.zstack.network.service.lb.APIQueryLoadBalancerListenerReply"`
-
 }
 
 type CreateLoadBalancerListenerParams struct {
@@ -198,43 +197,43 @@ func (p *CreateLoadBalancerListenerParams) toApiMessage() (string, error) {
 }
 
 func (p *CreateLoadBalancerListenerParams) SetLoadBalancerUuid(loadBalancerUuid string) {
-   	p.makeSureNotNil()
+	p.makeSureNotNil()
 	p.p["loadBalancerUuid"] = loadBalancerUuid
 }
 
 func (p *CreateLoadBalancerListenerParams) SetName(name string) {
-   	p.makeSureNotNil()
+	p.makeSureNotNil()
 	p.p["name"] = name
 }
 
 func (p *CreateLoadBalancerListenerParams) SetDescription(description string) {
-   	p.makeSureNotNil()
+	p.makeSureNotNil()
 	p.p["description"] = description
 }
 
 func (p *CreateLoadBalancerListenerParams) SetInstancePort(instancePort uint16) {
-   	p.makeSureNotNil()
+	p.makeSureNotNil()
 	p.p["instancePort"] = instancePort
 }
 
 func (p *CreateLoadBalancerListenerParams) SetLoadBalancerPort(loadBalancerPort uint16) {
-   	p.makeSureNotNil()
+	p.makeSureNotNil()
 	p.p["loadBalancerPort"] = loadBalancerPort
 }
 
 func (p *CreateLoadBalancerListenerParams) SetProtocol(protocol string) {
-   	p.makeSureNotNil()
+	p.makeSureNotNil()
 	p.p["protocol"] = protocol
 }
 
 type CreateLoadBalancerListenerResponse struct {
 	Reply struct {
-		id           string       `json:"id"`
-		ApiId        string       `json:"apiId"`
-		CreatedTime  uint64       `json:"createdTime"`
-		Success      bool         `json:"success"`
-		Error        ZStackError  `json:"error"`
-		Type         ZStackType   `json:"type"`
+		id                   string               `json:"id"`
+		ApiId                string               `json:"apiId"`
+		CreatedTime          uint64               `json:"createdTime"`
+		Success              bool                 `json:"success"`
+		Error                ZStackError          `json:"error"`
+		Type                 ZStackType           `json:"type"`
 		LoadBalancerListener LoadBalancerListener `json:"inventory"`
 	} `json:"org.zstack.network.service.lb.APICreateLoadBalancerListenerEvent"`
 }
@@ -261,34 +260,34 @@ func (p *DeleteLoadBalancerListenerParams) toApiMessage() (string, error) {
 
 type DeleteLoadBalancerListenerResponse struct {
 	Reply struct {
-		id           string       `json:"id"`
-		ApiId        string       `json:"apiId"`
-		CreatedTime  uint64       `json:"createdTime"`
-		Success      bool         `json:"success"`
-		Error        ZStackError  `json:"error"`
-		Type         ZStackType   `json:"type"`
+		id          string      `json:"id"`
+		ApiId       string      `json:"apiId"`
+		CreatedTime uint64      `json:"createdTime"`
+		Success     bool        `json:"success"`
+		Error       ZStackError `json:"error"`
+		Type        ZStackType  `json:"type"`
 	} `json:"org.zstack.network.service.lb.APIDeleteLoadBalancerListenerEvent"`
 }
 
 type baseLoadBalancerVmNicParams struct {
-    baseParams
+	baseParams
 }
 
-func (p *baseLoadBalancerVmNicParams) SetVmNicUuids(vmNicUuids string){
-   	p.makeSureNotNil()
+func (p *baseLoadBalancerVmNicParams) SetVmNicUuids(vmNicUuids string) {
+	p.makeSureNotNil()
 	p.p["vmNicUuids"] = vmNicUuids
 }
 
-func (p *baseLoadBalancerVmNicParams) SetListenerUuid(listenerUuid string){
-   	p.makeSureNotNil()
+func (p *baseLoadBalancerVmNicParams) SetListenerUuid(listenerUuid string) {
+	p.makeSureNotNil()
 	p.p["listenerUuid"] = listenerUuid
 }
 
 type AddVmNicToLoadBalancerParams struct {
-    baseLoadBalancerVmNicParams
+	baseLoadBalancerVmNicParams
 }
 
-func NewAddVmNicToLoadBalancerParams() *AddVmNicToLoadBalancerParams{
+func NewAddVmNicToLoadBalancerParams() *AddVmNicToLoadBalancerParams {
 	rtn := &AddVmNicToLoadBalancerParams{}
 	rtn.p = make(map[string]interface{})
 	return rtn
@@ -306,22 +305,21 @@ func (p *AddVmNicToLoadBalancerParams) toApiMessage() (string, error) {
 
 type AddVmNicToLoadBalancerResponse struct {
 	Reply struct {
-		id           string       `json:"id"`
-		ApiId        string       `json:"apiId"`
-		CreatedTime  uint64       `json:"createdTime"`
-		Success      bool         `json:"success"`
-		Error        ZStackError  `json:"error"`
-		Type         ZStackType   `json:"type"`
+		id                   string               `json:"id"`
+		ApiId                string               `json:"apiId"`
+		CreatedTime          uint64               `json:"createdTime"`
+		Success              bool                 `json:"success"`
+		Error                ZStackError          `json:"error"`
+		Type                 ZStackType           `json:"type"`
 		LoadBalancerListener LoadBalancerListener `json:"inventory"`
 	} `json:"org.zstack.network.service.lb.APIAddVmNicToLoadBalancerEvent"`
-
 }
 
 type RemoveVmNicFromLoadBalancerParams struct {
-    baseLoadBalancerVmNicParams
+	baseLoadBalancerVmNicParams
 }
 
-func NewRemoveVmNicFromLoadBalancerParams() *RemoveVmNicFromLoadBalancerParams{
+func NewRemoveVmNicFromLoadBalancerParams() *RemoveVmNicFromLoadBalancerParams {
 	rtn := &RemoveVmNicFromLoadBalancerParams{}
 	rtn.p = make(map[string]interface{})
 	return rtn
@@ -378,36 +376,36 @@ func (s *LoadBalancerService) DeleteLoadBalancer(param *DeleteLoadBalancerParams
 	}, error)
 }
 
-func (s *LoadBalancerService) QueryLoadBalancerListener(param *QueryLoadBalancerListenerParams, callback func(data QueryLoadBalancerListenerResponse), error func(err interface{})){
-    var resp QueryLoadBalancerListenerResponse
-    s.zs.SyncApi(param, &resp, func(){
-        callback(resp)
-    }, error)
+func (s *LoadBalancerService) QueryLoadBalancerListener(param *QueryLoadBalancerListenerParams, callback func(data QueryLoadBalancerListenerResponse), error func(err interface{})) {
+	var resp QueryLoadBalancerListenerResponse
+	s.zs.SyncApi(param, &resp, func() {
+		callback(resp)
+	}, error)
 }
 
-func (s *LoadBalancerService) CreateLoadBalancerListener(param *CreateLoadBalancerListenerParams, callback func(data CreateLoadBalancerListenerResponse), error func(err interface{})){
-    var resp CreateLoadBalancerListenerResponse
+func (s *LoadBalancerService) CreateLoadBalancerListener(param *CreateLoadBalancerListenerParams, callback func(data CreateLoadBalancerListenerResponse), error func(err interface{})) {
+	var resp CreateLoadBalancerListenerResponse
 	s.zs.AsyncApi(param, &resp, func() {
 		callback(resp)
 	}, error)
 }
 
-func (s *LoadBalancerService) DeleteLoadBalancerListener(param *DeleteLoadBalancerListenerParams, callback func(data DeleteLoadBalancerResponse), error func(err interface{})){
-    var resp DeleteLoadBalancerResponse
+func (s *LoadBalancerService) DeleteLoadBalancerListener(param *DeleteLoadBalancerListenerParams, callback func(data DeleteLoadBalancerResponse), error func(err interface{})) {
+	var resp DeleteLoadBalancerResponse
 	s.zs.AsyncApi(param, &resp, func() {
 		callback(resp)
 	}, error)
 }
 
-func (s *LoadBalancerService) AddVmNicToLoadBalancer(param *AddVmNicToLoadBalancerParams, callback func(data AddVmNicToLoadBalancerResponse), error func(err interface{})){
-    var resp AddVmNicToLoadBalancerResponse
+func (s *LoadBalancerService) AddVmNicToLoadBalancer(param *AddVmNicToLoadBalancerParams, callback func(data AddVmNicToLoadBalancerResponse), error func(err interface{})) {
+	var resp AddVmNicToLoadBalancerResponse
 	s.zs.AsyncApi(param, &resp, func() {
 		callback(resp)
 	}, error)
 }
 
-func (s *LoadBalancerService) RemoveVmNicFromLoadBalancer(param *RemoveVmNicFromLoadBalancerParams, callback func(data QueryLoadBalancerResponse), error func(err interface{})){
-    var resp RemoveVmNicFromLoadBalancerResponse
+func (s *LoadBalancerService) RemoveVmNicFromLoadBalancer(param *RemoveVmNicFromLoadBalancerParams, callback func(data QueryLoadBalancerResponse), error func(err interface{})) {
+	var resp RemoveVmNicFromLoadBalancerResponse
 	s.zs.AsyncApi(param, &resp, func() {
 		callback(resp)
 	}, error)

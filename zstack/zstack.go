@@ -49,12 +49,12 @@ func (p *baseParams) SetSecretKey(secretKey string) {
 }
 
 type baseDeleteParams struct {
-    baseParams
+	baseParams
 }
 
-func (p *baseDeleteParams) SetUuid(uuid string){
-    p.makeSureNotNil()
-    p.p["uuid"] = uuid
+func (p *baseDeleteParams) SetUuid(uuid string) {
+	p.makeSureNotNil()
+	p.p["uuid"] = uuid
 }
 
 type baseCreateParams struct {
@@ -139,7 +139,7 @@ type ZStackAPIReply struct {
 }
 
 type ZStackType struct {
-    Name string `json:"_name"`
+	Name string `json:"_name"`
 }
 
 type ZStackAPIEvent struct {

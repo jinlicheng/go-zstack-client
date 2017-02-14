@@ -3,7 +3,7 @@ package zstack
 import "encoding/json"
 
 type QueryVmInstanceParams struct {
-    baseQueryParams
+	baseQueryParams
 }
 
 func NewQueryVmInstanceParams() *QueryVmInstanceParams {
@@ -24,7 +24,7 @@ func (p *QueryVmInstanceParams) toApiMessage() (string, error) {
 }
 
 type QueryVmNicParmas struct {
-    baseQueryParams
+	baseQueryParams
 }
 
 func NewQueryVmNicParmas() *QueryVmNicParmas {

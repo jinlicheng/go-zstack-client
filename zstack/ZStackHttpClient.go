@@ -4,10 +4,10 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"strings"
 	"time"
-    "log"
 )
 
 type ZStackHttpClient struct {
@@ -73,7 +73,7 @@ func (zs *ZStackHttpClient) AsyncApi(msg ApiMessage, resp interface{}, callback 
 	err = json.Unmarshal(b, &jobResp)
 	if err != nil {
 		error(err)
-        log.Println("error in conver async job call response.", err, string(b))
+		log.Println("error in conver async job call response.", err, string(b))
 		return
 	}
 	go zs.queryJobResult(jobResp.Id, resp, callback, error)
@@ -95,35 +95,35 @@ func (zs *ZStackHttpClient) queryJobResult(id string, rtn interface{}, callback 
 		var ajResp asyncJobResponse
 		err = json.Unmarshal(b, &ajResp)
 		if err != nil {
-            log.Println("Error occur when unmarshal asyncjob query result.", string(b), ajResp)
+			log.Println("Error occur when unmarshal asyncjob query result.", string(b), ajResp)
 			error(err)
 			return
 		}
 		log.Println(string(b))
-        var respStr string
+		var respStr string
 		if ajResp.Status == 1 {
 			log.Println("Loop Run Query ZStack Job Result.")
-            time.Sleep(time.Second)
+			time.Sleep(time.Second)
 		} else if ajResp.Status == 2 {
-            bb, err := ajResp.Rsp.MarshalJSON()
-            respStr = string(bb)
+			bb, err := ajResp.Rsp.MarshalJSON()
+			respStr = string(bb)
 			if strings.Contains(respStr, "org.zstack.header.message.APIEvent") {
 				var apiEvent ZStackAPIEvent
 				err = json.Unmarshal(ajResp.Rsp, &apiEvent)
 				if err != nil {
 					error(err)
-				}else{
+				} else {
 					error(apiEvent)
 					return
 				}
 			}
 			err = json.Unmarshal(bb, &rtn)
-            log.Println(rtn)
-            if err != nil {
-                error(err)
-            }else{
-                callback()
-            }
+			log.Println(rtn)
+			if err != nil {
+				error(err)
+			} else {
+				callback()
+			}
 			break
 		}
 	}

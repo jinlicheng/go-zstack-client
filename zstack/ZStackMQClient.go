@@ -4,10 +4,10 @@ const (
 	P2P_EXCHANGE                 = "P2P"
 	API_SERVICE_ID               = "zstack.message.api.portal"
 	BROADCAST_EXCHANGE           = "BROADCAST"
-	QUEUE_PREFIX                 = "zstack.ui.message.%s"
-	API_EVENT_QUEUE_PREFIX       = "zstck.ui.api.event.%s"
+	QUEUE_PREFIX                 = "zstack.go.message.%s"
+	API_EVENT_QUEUE_PREFIX       = "zstck.go.api.event.%s"
 	API_EVENT_QUEUE_BINDING_KEY  = "key.event.API.API_EVENT"
-	CANONICAL_EVENT_QUEUE_PREFIX = "zstck.ui.canonical.event.%s"
+	CANONICAL_EVENT_QUEUE_PREFIX = "zstck.go.canonical.event.%s"
 	CANONICAL_EVENT_BINDING_KEY  = "key.event.LOCAL.canonicalEvent"
 )
 

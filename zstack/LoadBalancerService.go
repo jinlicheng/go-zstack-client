@@ -404,7 +404,7 @@ func (s *LoadBalancerService) AddVmNicToLoadBalancer(param *AddVmNicToLoadBalanc
 	}, error)
 }
 
-func (s *LoadBalancerService) RemoveVmNicFromLoadBalancer(param *RemoveVmNicFromLoadBalancerParams, callback func(data QueryLoadBalancerResponse), error func(err interface{})) {
+func (s *LoadBalancerService) RemoveVmNicFromLoadBalancer(param *RemoveVmNicFromLoadBalancerParams, callback func(data RemoveVmNicFromLoadBalancerResponse), error func(err interface{})) {
 	var resp RemoveVmNicFromLoadBalancerResponse
 	s.zs.AsyncApi(param, &resp, func() {
 		callback(resp)
